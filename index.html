@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Odin Rock Paper Scissors Game</title>
+  </head>
+
+  <body>
+    <script>
+      const possibleCombinations = ["rock", "paper", "scissors"];
+      function getComputerSelection(arr) {
+        return arr[Math.floor(Math.random() * 3)];
+      }
+      const computerSelection = getComputerSelection(possibleCombinations);
+      const playerSelection = prompt(
+        "Pick between Rock, Paper & Scissor?"
+      ).toLowerCase();
+
+      function playRound(playerSelection, computerSelection) {
+        if (playerSelection == "rock" && computerSelection == "scissors") {
+          console.log("Rock beats Scissors! You win!");
+        } else if (playerSelection == "paper" && computerSelection == "rock") {
+          console.log("Paper beats Rock! You win!");
+        } else if (
+          playerSelection == "scissors" &&
+          computerSelection == "paper"
+        ) {
+          console.log("Scissors beats Paper! You win!");
+        } else if (
+          playerSelection == "scissors" &&
+          computerSelection == "rock"
+        ) {
+          console.log("Rock beats Scissors! You lose!");
+        } else if (playerSelection == "rock" && computerSelection == "paper") {
+          console.log("Paper beats Rock! You lose!");
+        } else if (playerSelection == "rock" && computerSelection == "paper") {
+          console.log("Paper beats Rock! You lose!");
+        } else {
+          console.log("Its a tie!");
+        }
+      }
+      console.log("Player Selection:", playerSelection);
+      console.log("Computer Selection:", computerSelection);
+      playRound(playerSelection, computerSelection);
+    </script>
+  </body>
+</html>
