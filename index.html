@@ -12,10 +12,6 @@
       function getComputerSelection(arr) {
         return arr[Math.floor(Math.random() * 3)];
       }
-      const computerSelection = getComputerSelection(possibleCombinations);
-      const playerSelection = prompt(
-        "Pick between Rock, Paper & Scissor?"
-      ).toLowerCase();
 
       function playRound(playerSelection, computerSelection) {
         if (playerSelection == "rock" && computerSelection == "scissors") {
@@ -36,13 +32,29 @@
           console.log("Paper beats Rock! You lose!");
         } else if (playerSelection == "rock" && computerSelection == "paper") {
           console.log("Paper beats Rock! You lose!");
-        } else {
+        } else if (playerSelection === computerSelection) {
           console.log("Its a tie!");
+        } else {
+          console.log("Please pick a valid choice.");
         }
       }
-      console.log("Player Selection:", playerSelection);
-      console.log("Computer Selection:", computerSelection);
-      playRound(playerSelection, computerSelection);
+
+      function game(playRound, getComputerSelection) {
+        const rounds = parseInt(
+          prompt("How many rounds would you like to play?")
+        );
+        for (let i = 0; i < rounds; i++) {
+          const computerSelection = getComputerSelection(possibleCombinations);
+          const playerSelection = prompt(
+            "Pick between Rock, Paper & Scissor?"
+          ).toLowerCase();
+
+          console.log("Player Selection:", playerSelection);
+          console.log("Computer Selection:", computerSelection);
+          playRound(playerSelection, computerSelection);
+        }
+      }
+      game(playRound, getComputerSelection);
     </script>
   </body>
 </html>
