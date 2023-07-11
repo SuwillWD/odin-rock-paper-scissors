@@ -4,21 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./styles.css" />
-    <title>Odin Rock Paper Scissors Game</title>
+    <title>The Rock Paper Scissors Game - SuwillWD</title>
   </head>
 
   <body>
     <div class="container">
       <div class="header">
-        <h1>ODIN ROCK PAPER SCISSORS GAME</h1>
+        <h1>THE ROCK PAPER SCISSORS GAME</h1>
       </div>
       <div class="game">
         <div class="inputs">
           <h2 class="info-text">Choose between...</h2>
           <div class="options">
-            <button class="user-input">ROCK</button>
-            <button class="user-input">PAPER</button>
-            <button class="user-input">SCISSORS</button>
+            <button class="user-input" value="ROCK">ROCK</button>
+            <button class="user-input" value="PAPER">PAPER</button>
+            <button class="user-input" value="SCISSORS">SCISSORS</button>
           </div>
         </div>
         <div class="computer-side">
@@ -27,10 +27,14 @@
         </div>
       </div>
       <div class="result">
-        <input type="text" />
+        <input type="text" class="show-result" />
+      </div>
+      <div class="scores"></div>
+      <div class="play">
+        <button type="button">PLAY</button>
       </div>
       <div class="footer">
-        <h3>Copyright @The Odin Project</h3>
+        <h3>Copyright @The SuwillWD Project</h3>
       </div>
     </div>
     <script src="./script.js"></script>

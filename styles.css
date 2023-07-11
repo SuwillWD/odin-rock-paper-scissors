@@ -71,9 +71,19 @@ button {
 .result input {
   width: 800px;
   height: 50px;
+  font-size: 32px;
+  text-align: center;
+}
+
+.play button {
+  background-color: green;
+}
+
+.play button:hover {
+  box-shadow: 0 0 10px 0;
 }
 
 .footer {
   justify-self: flex-end;
-  margin-top: 270px;
+  margin-top: 110px;
 }
