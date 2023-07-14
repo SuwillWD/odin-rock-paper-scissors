@@ -12,26 +12,27 @@
       <div class="header">
         <h1>THE ROCK PAPER SCISSORS GAME</h1>
       </div>
+      <div class="scores">
+        <div class="player-name">Player</div>
+        <div class="player-score"></div>
+        <div class="separator">-</div>
+        <div class="computer-score"></div>
+        <div class="computer-name">Computer</div>
+      </div>
       <div class="game">
-        <div class="inputs">
-          <h2 class="info-text">Choose between...</h2>
-          <div class="options">
-            <button class="user-input" value="ROCK">ROCK</button>
-            <button class="user-input" value="PAPER">PAPER</button>
-            <button class="user-input" value="SCISSORS">SCISSORS</button>
+        <div class="player-side">
+          <div class="game-controlls">
+            <button class="user-input">ROCK</button>
+            <button class="user-input">PAPER</button>
+            <button class="user-input">SCISSORS</button>
           </div>
+          <div class="show-player-selection">ROCK</div>
         </div>
-        <div class="computer-side">
-          <h3>Computer chose...</h3>
-          <input type="text" class="show-computer-input" placeholder="ROCK" />
-        </div>
+        <div class="show-computer-selection">PAPER</div>
       </div>
-      <div class="result">
-        <input type="text" class="show-result" />
-      </div>
-      <div class="scores"></div>
-      <div class="play">
-        <button type="button">PLAY</button>
+      <div class="result"></div>
+      <div class="play-again">
+        <button type="button" onclick="location.reload()">PLAY AGAIN</button>
       </div>
       <div class="footer">
         <h3>Copyright @The SuwillWD Project</h3>

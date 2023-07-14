@@ -23,64 +23,70 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
-function game(playRound, getComputerChoice) {
-  //   const rounds = parseInt(prompt("How many rounds would you like to play?"));
-  let playerScore = 0;
-  let computerScore = 0;
-  let declareRoundWinner = "";
-  for (let i = 0; i < rounds; i++) {
-    const computerSelection = getComputerChoice(possibleCombinations);
-    // const playerSelection = prompt(
-    //   "Pick between Rock, Paper & Scissor?"
-    // ).toLowerCase();
-    console.log(`Round ${i + 1}:`);
-    console.log("Player Selection:", playerSelection);
-    console.log("Computer Selection:", computerSelection);
-    declareRoundWinner = playRound(playerSelection, computerSelection);
-    console.log(`Result of Round ${i + 1}:` + declareRoundWinner);
-    calculateScore(declareRoundWinner);
-  }
-  function calculateScore(string) {
-    if (string.endsWith("You win!")) {
-      playerScore++;
-      return;
-    } else if (string.endsWith("You lose!")) {
-      computerScore++;
-      return;
-    } else {
-      return;
+const showComputerSelection = document.querySelector(
+  ".show-computer-selection"
+);
+const showPlayerSelection = document.querySelector(".show-player-selection");
+const showResult = document.querySelector(".result");
+
+const showPlayerScore = document.querySelector(".player-score");
+const showComputerScore = document.querySelector(".computer-score");
+
+const gameResult = document.querySelector(".game-result");
+
+function calculateScore(string) {
+  if (string.endsWith("You win!")) {
+    playerScore++;
+    showPlayerScore.textContent = playerScore;
+    if (playerScore === 2) {
+      declareGameWinnerPlayer();
     }
+    return;
+  } else if (string.endsWith("You lose!")) {
+    computerScore++;
+    showComputerScore.textContent = computerScore;
+    if (computerScore === 2) {
+      declareGameWinnerComputer();
+    }
+    return;
+  } else {
+    return;
   }
-  winner(playerScore, computerScore);
+}
+
+const playAgain = document.querySelector(".play-again");
+
+function declareGameWinnerPlayer() {
+  playAgain.classList.add("active");
+  showResult.textContent = "You won the game!";
+}
+
+function declareGameWinnerComputer() {
+  playAgain.classList.add("active");
+  showResult.textContent = "You lost the game!";
 }
 
 function winner(playerScore, computerScore) {
   if (playerScore > computerScore) {
-    console.log(
-      `Score is ${playerScore} for you and ${computerScore} for the computer. You won the Game!`
-    );
+    return `Score is ${playerScore} for you and ${computerScore} for the computer. You won the Game!`;
   } else if (playerScore < computerScore) {
-    console.log(
-      `Score is ${playerScore} for you and ${computerScore} for the computer. You lost the Game!`
-    );
-  } else {
-    console.log(
-      `Score is ${playerScore} for you and ${computerScore} for the computer. The Game is a tie!`
-    );
+    return `Score is ${playerScore} for you and ${computerScore} for the computer. You lost the Game!`;
   }
 }
-// game(playRound, getComputerChoice);
 
-const showComputerSelection = document.querySelector(".show-computer-input");
-
-const showResult = document.querySelector(".show-result");
+let playerScore = 0;
+let computerScore = 0;
+let declareRoundWinner = "";
 
 const buttons = document.querySelectorAll(".user-input");
 buttons.forEach((button) => {
   button.addEventListener("click", () => {
-    const playerSelection = button.value.toLowerCase();
+    const playerSelection = button.textContent.toLowerCase();
     const computerSelection = getComputerChoice(possibleCombinations);
-    showComputerSelection.value = computerSelection.toUpperCase();
-    showResult.value = playRound(playerSelection, computerSelection);
+    showComputerSelection.textContent = computerSelection.toUpperCase();
+    showPlayerSelection.textContent = playerSelection.toUpperCase();
+    declareRoundWinner = playRound(playerSelection, computerSelection);
+    showResult.textContent = declareRoundWinner;
+    calculateScore(declareRoundWinner);
   });
 });

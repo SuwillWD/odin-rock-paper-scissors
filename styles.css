@@ -7,26 +7,54 @@
 }
 
 body {
-  background-color: orange;
+  background-color: lightblue;
+  height: 90vh;
 }
 
 .header h1 {
   font-size: 42px;
-  padding: 50px;
+  padding: 20px 50px;
+  padding-top: 60px;
 }
 
 .container {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  gap: 100px;
+  gap: 40px;
 }
 
-.game {
-  display: flex;
-  justify-content: space-around;
-  gap: 150px;
+.container .scores {
+  gap: 0;
+}
+
+.player-name {
+  border: 1px solid black;
+  padding: 20px 300px 20px 800px;
+  background-color: rgba(17, 5, 5, 0.651);
+  color: white;
+}
+
+.computer-name {
+  border: 1px solid black;
+  padding: 20px 800px 20px 300px;
+  background-color: rgba(17, 5, 5, 0.651);
+  color: white;
+}
+
+.player-score,
+.computer-score {
+  width: 100px;
+  padding: 20px 0;
+  background-color: rgba(255, 255, 255, 0.329);
+}
+
+.separator {
+  width: 20px;
+  padding: 20px 0;
+  background-color: rgba(255, 255, 255, 0.37);
 }
 
 button {
@@ -39,51 +67,87 @@ button {
   font-weight: 600;
 }
 
-.game .inputs {
+.game {
   display: flex;
-  flex-direction: column;
 }
 
-.options {
+.game-controlls {
+  width: 200px;
   display: flex;
+  flex-direction: column;
   gap: 30px;
 }
 
-.options button:hover {
+.game-controlls button:hover {
   box-shadow: 0 0 20px 0;
 }
 
-.info-text,
-.computer-side h3 {
+.result,
+.scores {
   font-size: 32px;
-  margin-bottom: 20px;
+  margin: 15px;
 }
 
-.computer-side input {
-  width: 300px;
-  height: 50px;
-  font-size: 28px;
+.display,
+.scores {
+  display: flex;
+}
+
+.player-side {
+  width: 820px;
+  background-color: rgb(228, 233, 241);
+  margin-right: 120px;
+  display: flex;
+  padding: 10px;
+}
+
+.show-player-selection {
+  width: 700px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 100px;
+}
+
+.show-computer-selection {
+  width: 840px;
+  background-color: rgb(228, 233, 241);
+  margin-left: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 100px;
+}
+
+.player-score,
+.computer-score {
   text-align: center;
-  background-color: red;
-  color: white;
 }
 
-.result input {
-  width: 800px;
-  height: 50px;
-  font-size: 32px;
-  text-align: center;
+.result {
+  width: 1000px;
+  height: 80px;
+  border: 1px solid black;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.play button {
+.play-again button {
   background-color: green;
+  opacity: 0;
 }
 
-.play button:hover {
+.play-again button:hover {
   box-shadow: 0 0 10px 0;
+}
+
+.active button {
+  opacity: 1;
 }
 
 .footer {
   justify-self: flex-end;
-  margin-top: 110px;
+  margin-top: -30px;
 }
